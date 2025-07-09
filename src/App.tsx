@@ -1,41 +1,57 @@
+// App.tsx
 import { AppProvider } from "@components/AppProvider";
-import { useAppContext } from "@hooks/appProviderContext";
+import { PrivateRoute } from "@components/PrivateRoute";
 import { Routes, Route } from "react-router";
+import type { AuthFunctions, NavigationItem } from "@customTypes/session";
+import { HomePage, AdminPage, SignInPage, UnauthorizedPage } from "@/pages";
+import { AccessAlarm } from "@mui/icons-material";
+import { appTheme } from "@/theme";
 
-const authentication = {
-  signIn: () => alert("sign in"),
-  signOut: () => alert("sign out"),
+// Mock de autenticação e sessão
+const mockAuth: AuthFunctions = {
+  signIn: async () => ({
+    success: true,
+    user: { id: "1", name: "Admin", email: "admin@test.com", role: "admin" },
+    error: null,
+  }),
+  signOut: () => console.log("Signed out"),
 };
 
-const session = {
-  user: {
-    name: "Marcos",
-    email: "marcos@email.com",
+const mockNavigation: NavigationItem[] = [
+  { kind: "header", title: "Main" },
+  {
+    kind: "page",
+    title: "Home",
+    segment: "home",
+    pattern: "/",
+    icon: <AccessAlarm />,
   },
-};
-
-export const Home = () => {
-  const { session, authentication } = useAppContext();
-
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Usuário: {session?.user?.name ?? "Anônimo"}</p>
-      <button onClick={authentication?.signOut}>Sair</button>
-    </div>
-  );
-};
-
-const About = () => {
-  return <h1>About Page</h1>;
-};
+  {
+    kind: "page",
+    title: "Admin",
+    segment: "admin",
+    pattern: "/admin",
+    icon: <AccessAlarm />,
+  },
+];
 
 export const App = () => {
   return (
-    <AppProvider authentication={authentication} session={session}>
+    <AppProvider
+      authentication={mockAuth}
+      theme={appTheme}
+      navigation={mockNavigation}
+    >
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute allowedTo={["admin"]} element={<AdminPage />} />
+          }
+        />
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/unauthorized" element={<UnauthorizedPage />} />
       </Routes>
     </AppProvider>
   );
