@@ -7,58 +7,76 @@ import ptBr from "./locales/ptbr";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import { createTheme } from "@mui/material";
+import { ptBR as corePtBR } from "@mui/material/locale";
+import { ptBR as gridPtBR } from "@mui/x-data-grid/locales";
+import { ptBR as pickersPtBR } from "@mui/x-date-pickers/locales";
 
 const NAVIGATION: Navigation = [
   { kind: "header", title: "Main items" },
   { title: "Dashboard", icon: <DashboardIcon /> },
-  { title: "Conformidade", icon: <AssignmentIcon />, segment: "conformity" },
+  {
+    title: "Relatórios",
+    icon: <AssignmentIcon />,
+    segment: "reports",
+    pattern: "reports{/:reportId}*",
+  },
 ];
 const BRANDING = { title: "VeraAI", logo: "" };
 
 const lightAppBarColor = "#0D2B70";
 const darkAppBarColor = "#0D2B70";
 
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-  },
-  components: {
-    MuiAppBar: {
-      defaultProps: { color: "primary", enableColorOnDark: true },
-      styleOverrides: {
-        root: {
-          backgroundColor: lightAppBarColor,
-          color: "#fff",
-          "& .MuiTypography-root, & svg": {
+const lightTheme = createTheme(
+  {
+    palette: {
+      mode: "light",
+    },
+    components: {
+      MuiAppBar: {
+        defaultProps: { color: "primary", enableColorOnDark: true },
+        styleOverrides: {
+          root: {
+            backgroundColor: lightAppBarColor,
             color: "#fff",
+            "& .MuiTypography-root, & svg": {
+              color: "#fff",
+            },
           },
         },
       },
     },
   },
-});
+  corePtBR,
+  gridPtBR,
+  pickersPtBR
+);
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        colorPrimary: {
-          color: "#ffffff",
-        },
-        root: {
-          backgroundColor: darkAppBarColor,
-          color: "#fff",
-          "& .MuiTypography-root, & svg": {
+const darkTheme = createTheme(
+  {
+    palette: {
+      mode: "dark",
+    },
+    components: {
+      MuiAppBar: {
+        styleOverrides: {
+          colorPrimary: {
+            color: "#ffffff",
+          },
+          root: {
+            backgroundColor: darkAppBarColor,
             color: "#fff",
+            "& .MuiTypography-root, & svg": {
+              color: "#fff",
+            },
           },
         },
       },
     },
   },
-});
+  corePtBR,
+  gridPtBR,
+  pickersPtBR
+);
 
 export const appTheme = { light: lightTheme, dark: darkTheme };
 

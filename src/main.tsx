@@ -5,7 +5,7 @@ import App from "./App";
 import Layout from "./layouts/dashboard";
 import DashboardPage from "./pages";
 import SignInPage from "./pages/signin";
-import ConformityPage from "./pages/ConformityPage";
+import { ReportsCrudPage } from "./pages/reports";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
             Component: DashboardPage,
           },
           {
-            path: "/conformity",
-            Component: ConformityPage,
+            path: "reports/:reportId?/*",
+            Component: ReportsCrudPage,
           },
         ],
       },
