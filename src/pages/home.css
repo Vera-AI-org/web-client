@@ -1,6 +1,6 @@
 :root{
   --bg: #0a0321;
-  --gradient-start: #7a5af8;
+  --gradient-start: #0f004d;
   --gradient-end: #9b6bff;
   --surface: #ffffff;
   --ink: #0f1222;
@@ -94,10 +94,10 @@
 }
 .btn--primary:hover{ transform: translateY(-1px); }
 .btn--ghost{
-  background: rgba(255,255,255,.06); color: #fff;
-  border-color: rgba(255,255,255,.3);
+  background: rgba(255, 255, 255, 0.362); color: #ffffff;
+  border-color: rgb(255, 255, 255);
 }
-.btn--ghost:hover{ background: rgba(255,255,255,.12); }
+.btn--ghost:hover{ background: rgb(255, 255, 255); }
 .btn--xl{ --h: 56px; font-size: 18px; padding: 0 26px; }
 
 .hero__illustration {
@@ -182,7 +182,7 @@
   display:flex; justify-content:center;
 }
 .btn--primary.btn--xl{
-  background: linear-gradient(180deg, #7d5cf9, #6a47f0);
+  background: linear-gradient(180deg, #7d5cf9, #0f004d);
   color: #fff; border: none;
   box-shadow: 0 14px 32px rgba(108,79,187,.35);
 }
