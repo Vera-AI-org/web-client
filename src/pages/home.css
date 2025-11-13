@@ -155,6 +155,31 @@
 .u-stroke{ stroke: currentColor; }
 .step__title{ margin-top: 8px; font-weight: 700; color: #2a2f4f; }
 
+/* ---------- TUTORIAL VIDEO ---------- */
+.tutorial {
+  margin: 24px auto 0;
+  padding: 0 24px;
+}
+
+.tutorial__wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #ececf6;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(16,24,40,.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tutorial__video {
+  width: 60%;
+  border-radius: 12px;
+  outline: none;
+}
+
 /* ---------- BENEFÍCIOS ---------- */
 .benefits{ padding: 10px 24px 0; }
 .benefits__card{

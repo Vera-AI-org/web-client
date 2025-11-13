@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
 import veraImage from "../assets/images/verai.png";
+import tutorialVideo from "../assets/videos/tutorial.mp4";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -57,6 +58,21 @@ export default function Home() {
           <Step number={3} title="Extraia as informações" icon={<IconExtract />} />
           <Step number={4} title="Gere relatórios" icon={<IconReport />} />
         </ol>
+      </section>
+
+      {/* VÍDEO TUTORIAL */}
+      <section className="tutorial">
+        <h2 className="section-title">Vídeo Tutorial</h2>
+
+        <div className="tutorial__wrapper">
+          <video
+            className="tutorial__video"
+            src={tutorialVideo}
+            controls
+            preload="metadata"
+            playsInline
+          />
+        </div>
       </section>
 
       {/* BENEFÍCIOS */}
