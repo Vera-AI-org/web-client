@@ -102,7 +102,7 @@ export default function Home() {
             </svg>
           </div>
           <p className="about__text">
-            Saia das conferências manuais e passe a gerenciar <b>templates</b>,
+            Se livre das conferências manuais e passe a gerenciar <b>templates</b>,
             processar <b>documentos</b> e gerar <b>relatórios</b> com agilidade
             e precisão!
           </p>
