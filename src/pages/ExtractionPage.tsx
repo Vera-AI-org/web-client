@@ -178,11 +178,7 @@ export const ExtractionPage = () => {
           Selecione os documentos
         </Typography>
 
-        <Typography variant="body1" sx={{ maxWidth: 350, mb: 3 }}>
-          Até 2 documentos, cada um com seu próprio template.
-        </Typography>
-
-        <FileUpload
+          <FileUpload
           file={null}
           onChange={handleAddFile}
           sx={{
