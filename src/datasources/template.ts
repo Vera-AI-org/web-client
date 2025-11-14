@@ -74,6 +74,7 @@ export const templateRuleDataSource = {
 };
 
 export interface Template {
+  id: number;
   name: string;
   pattern_ids: string[];
 }

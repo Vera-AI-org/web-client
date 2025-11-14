@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router';
 
 const CustomActions = () => (
   <Stack direction="row" alignItems="center" spacing={1}>
-    <ThemeSwitcher />
     <Account
       slotProps={{
         preview: { slotProps: { avatarIconButton: { sx: { border: '0' } } } },

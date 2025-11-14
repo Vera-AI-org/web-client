@@ -67,39 +67,12 @@ const lightTheme = createTheme(
   gridPtBr
 );
 
-const darkTheme = createTheme(
-  {
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: primaryColor, // ← COR PRIMÁRIA ROXA
-        contrastText: '#fff',
-      },
-    },
-    components: {
-      MuiAppBar: {
-        styleOverrides: {
-          root: {
-            backgroundColor: primaryColor, // ← USA O ROXO
-            color: '#fff',
-            '& .MuiTypography-root, & svg': {
-              color: '#fff',
-            },
-          },
-        },
-      },
-    },
-  },
-  datePtBR,
-  gridPtBr
-);
-
 const AUTHENTICATION: Authentication = {
   signIn: signInWithGoogle,
   signOut: firebaseSignOut,
 };
 
-export const appTheme = { light: lightTheme, dark: darkTheme };
+export const appTheme = { light: lightTheme };
 
 export default function App() {
   const [session, setSession] = React.useState<Session | null>(null);

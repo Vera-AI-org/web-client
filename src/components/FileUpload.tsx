@@ -1,10 +1,18 @@
 import { FC } from 'react';
-import { Button, Typography, Box, IconButton } from '@mui/material';
+import {
+  Button,
+  Typography,
+  Box,
+  IconButton,
+  SxProps,
+  Theme,
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 interface FileUploadProps {
   file: File | null;
   onChange: (file: File | null) => void;
+  sx?: SxProps<Theme>;
 }
 
 export const FileUpload: FC<FileUploadProps> = ({ file, onChange }) => {
