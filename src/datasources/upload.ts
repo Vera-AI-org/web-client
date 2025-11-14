@@ -46,21 +46,13 @@ export const fileUploadDataSource = {
       template_ids.forEach((id) => formData.append('template_ids', id));
       files.forEach((file) => formData.append('files', file));
 
-      console.log('>>> CHAMANDO FETCH');
-      console.log('URL:', `${API_URL}/document/upload/process`);
-      console.log('template_ids:', template_ids);
-      console.log('files:', files);
-
-      const response = await fetch(`${API_URL}/document/upload/process`, {
+      const response = await fetch(`${API_URL}/document/process`, {
         method: 'POST',
         headers: {
           ...(token && { Authorization: `Bearer ${token}` }),
         },
         body: formData,
       });
-
-      // Esse console só executa SE o fetch responder.
-      console.log('>>> FETCH RESPONDEU:', response);
 
       if (!response.ok) {
         throw new Error(`Erro no upload múltiplo: ${response.statusText}`);
