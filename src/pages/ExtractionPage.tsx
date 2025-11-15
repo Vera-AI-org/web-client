@@ -25,13 +25,13 @@ import imgPdf from '@assets/images/ImgPdf.png';
 import { fileUploadDataSource } from '@datasources/upload';
 import { useNotifications } from '@toolpad/core';
 
-export const mockGetManyTemplates = async (): Promise<Template[]> => {
-  return Promise.resolve([
-    { id: 1, name: 'RG Frente', pattern_ids: ['p1', 'p2'] },
-    { id: 2, name: 'RG Verso', pattern_ids: ['p3'] },
-    { id: 3, name: 'CNH', pattern_ids: ['p7', 'p8'] },
-  ]);
-};
+// export const mockGetManyTemplates = async (): Promise<Template[]> => {
+//   return Promise.resolve([
+//     { id: 1, name: 'RG Frente', pattern_ids: ['p1', 'p2'] },
+//     { id: 2, name: 'RG Verso', pattern_ids: ['p3'] },
+//     { id: 3, name: 'CNH', pattern_ids: ['p7', 'p8'] },
+//   ]);
+// };
 
 export const ExtractionPage = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -178,15 +178,14 @@ export const ExtractionPage = () => {
           Selecione os documentos
         </Typography>
 
-          <FileUpload
+        <FileUpload
           file={null}
           onChange={handleAddFile}
           sx={{
             width: '100%',
-            height: 49,
-            backgroundColor: '#fff',
+            height: 60,
+            backgroundColor: '#6750A4',
             borderRadius: 1,
-            border: '1px solid #ccc',
             mb: 3,
           }}
         />

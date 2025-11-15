@@ -1,10 +1,5 @@
 import { Stack, Button, Typography, Divider, alpha } from '@mui/material';
-import {
-  useNavigation,
-  useActivePage,
-  ThemeSwitcher,
-  Account,
-} from '@toolpad/core';
+import { useNavigation, useActivePage, Account } from '@toolpad/core';
 import { useNavigate } from 'react-router';
 
 const CustomActions = () => (

@@ -13,7 +13,7 @@ import {
 } from '../src/auth/auth';
 import { ptBR as datePtBR } from '@mui/x-date-pickers/locales';
 import { ptBR as gridPtBr } from '@mui/x-data-grid/locales';
-import logo from '@assets/images/logo_complete.png';
+import logo from '@assets/images/logo-2.png';
 
 const NAVIGATION: Navigation = [
   { title: 'Início' },

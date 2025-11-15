@@ -1,13 +1,9 @@
+// ALTERAÇÃO: Mantidas as props antigas, inclusive sx.
+// Alterado layout para ser apenas um Button que seleciona ou limpa o arquivo.
+
 import { FC } from 'react';
-import {
-  Button,
-  Typography,
-  Box,
-  IconButton,
-  SxProps,
-  Theme,
-} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
+import { Button } from '@mui/material';
+import { SxProps, Theme } from '@mui/material';
 
 interface FileUploadProps {
   file: File | null;
@@ -15,7 +11,7 @@ interface FileUploadProps {
   sx?: SxProps<Theme>;
 }
 
-export const FileUpload: FC<FileUploadProps> = ({ file, onChange }) => {
+export const FileUpload: FC<FileUploadProps> = ({ file, onChange, sx }) => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
     onChange(selectedFile);
@@ -26,15 +22,7 @@ export const FileUpload: FC<FileUploadProps> = ({ file, onChange }) => {
   };
 
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      bgcolor="#f9f9fc"
-      borderRadius="6px"
-      overflow="hidden"
-      border="1px solid #ccc"
-      sx={{ pr: 1, width: '100%' }}
-    >
+    <>
       <input
         type="file"
         accept="application/pdf"
@@ -42,38 +30,35 @@ export const FileUpload: FC<FileUploadProps> = ({ file, onChange }) => {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      <label htmlFor="file-upload">
+
+      {/* ALTERAÇÃO: único botão controlando selecionar/limpar */}
+      {!file ? (
+        <label htmlFor="file-upload">
+          <Button
+            variant="contained"
+            component="span"
+            sx={{
+              bgcolor: '#6750A4',
+              '&:hover': { bgcolor: '#6750A4' },
+              textTransform: 'none',
+              ...sx,
+            }}
+          >
+            Selecionar PDF
+          </Button>
+        </label>
+      ) : (
         <Button
-          variant="contained"
-          component="span"
+          variant="outlined"
+          onClick={handleClearFile}
           sx={{
-            bgcolor: '#6750A4',
-            '&:hover': { bgcolor: '#6750A4' },
             textTransform: 'none',
-            borderRadius: 0,
+            ...sx,
           }}
         >
-          Selecionar PDF
+          Remover: {file.name}
         </Button>
-      </label>
-      <Typography
-        sx={{
-          ml: 2,
-          color: '#333',
-          flex: 1,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        {file?.name || 'Nenhum arquivo selecionado'}
-      </Typography>
-
-      {file && (
-        <IconButton size="small" onClick={handleClearFile}>
-          <CloseIcon fontSize="small" />
-        </IconButton>
       )}
-    </Box>
+    </>
   );
 };
